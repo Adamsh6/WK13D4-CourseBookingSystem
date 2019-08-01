@@ -24,4 +24,14 @@ public class CustomerController {
         return customerRepository.findByBookingsCourseId(id);
     }
 
+    @GetMapping(value ="/town/{town}/course/{id}")
+    public List<Customer> getCustomerByTownAndCourse(@PathVariable String town, @PathVariable Long id){
+        return customerRepository.findByTownAndBookingsCourseId(town, id);
+    }
+
+    @GetMapping(value = "/age_over/{age}/town/{town}/course/{id}")
+    public List<Customer> getCustomerByAgeGreaterThanAndTownAndCourse(@PathVariable int age, @PathVariable String town, @PathVariable Long id){
+        return customerRepository.findByAgeGreaterThanAndTownAndBookingsCourseId(age, town, id);
+    }
+
 }
