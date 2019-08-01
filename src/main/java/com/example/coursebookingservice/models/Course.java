@@ -1,5 +1,6 @@
 package com.example.coursebookingservice.models;
 
+import com.example.coursebookingservice.models.Enums.StarRating;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
@@ -23,13 +24,13 @@ public class Course {
     private String town;
 
     @Column(name="star_rating")
-    private int starRating;
+    private StarRating starRating;
 
     @JsonIgnoreProperties({"course"})
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private List<Booking> bookings;
 
-    public Course(String name, String town, int starRating) {
+    public Course(String name, String town, StarRating starRating) {
         this.name = name;
         this.town = town;
         this.starRating = starRating;
@@ -63,11 +64,11 @@ public class Course {
         this.town = town;
     }
 
-    public int getStarRating() {
+    public StarRating getStarRating() {
         return starRating;
     }
 
-    public void setStarRating(int starRating) {
+    public void setStarRating(StarRating starRating) {
         this.starRating = starRating;
     }
 

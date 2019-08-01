@@ -5,5 +5,5 @@ public enum StarRating {
     TWO,
     THREE,
     FOUR,
-    FIVE;
+    FIVE
 }

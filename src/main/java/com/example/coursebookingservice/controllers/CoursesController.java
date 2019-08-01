@@ -1,6 +1,7 @@
 package com.example.coursebookingservice.controllers;
 
 import com.example.coursebookingservice.models.Course;
+import com.example.coursebookingservice.models.Enums.StarRating;
 import com.example.coursebookingservice.repositories.courseRepositories.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +20,7 @@ public class CoursesController {
     CourseRepository courseRepository;
 
     @GetMapping(value = "/starRating/{starRating}")
-    public List<Course> getAllCoursesByRating(@PathVariable int starRating){
+    public List<Course> getAllCoursesByRating(@PathVariable StarRating starRating){
         return courseRepository.findByStarRating(starRating);
     }
 
